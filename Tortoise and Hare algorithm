@@ -1,0 +1,36 @@
+The Tortoise and Hare algorithm, also known as Floyd's cycle-finding algorithm, is a clever and efficient algorithm primarily used to detect cycles in a sequence of values produced by a function where each value is used to determine the next one. This is particularly useful for detecting cycles in linked lists.
+The algorithm uses two pointers, often called the "tortoise" (slow pointer) and the "hare" (fast pointer), which traverse the sequence at different speeds.
+
+Here's how it works:
+
+ Initialization: Both the tortoise and the hare start at the beginning of the sequence (or the head of the linked list).
+
+Traversal:
+
+The tortoise moves one step at a time.
+The hare moves two steps at a time.
+Cycle Detection:
+
+If there is no cycle in the sequence, the hare will eventually reach the end (null in a linked list).
+If there is a cycle, the faster hare will eventually "lap" the slower tortoise, and they will meet at some point within the cycle.
+Meeting Point: The point where the tortoise and the hare meet guarantees that a cycle exists.
+
+Why does this work?
+
+Imagine a circular track. If one runner (the hare) is faster than another (the tortoise), the faster runner will eventually catch up to the slower one if they both keep running on the track. Similarly, in a cycle within a sequence, the faster pointer will eventually meet the slower pointer.
+
+Applications:
+
+Detecting cycles in linked lists: This is the most common application.
+Finding cycles in functional graphs.
+Detecting repeating states in algorithms.
+Finding the start of a cycle.
+Finding the length of a cycle.
+Example (Linked List Cycle Detection):
+
+Let's say we have a linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 3 (the tail '5' points back to '3', creating a cycle).
+
+Tortoise and hare start at 1.
+Tortoise moves: 1 -> 2 -> 3 -> 4 -> 5 -> 3 -> 4 -> 5 -> ...
+Hare moves: 1 -> 3 -> 5 -> 4 -> 3 -> 5 -> 4 -> ...
+You can see that eventually, both the tortoise and the hare will end up at the same node within the cycle (in this case, they would meet at node 4 in one of their iterations).
