@@ -34,3 +34,15 @@ Tortoise and hare start at 1.
 Tortoise moves: 1 -> 2 -> 3 -> 4 -> 5 -> 3 -> 4 -> 5 -> ...
 Hare moves: 1 -> 3 -> 5 -> 4 -> 3 -> 5 -> 4 -> ...
 You can see that eventually, both the tortoise and the hare will end up at the same node within the cycle (in this case, they would meet at node 4 in one of their iterations).
+public static ListNode MiddleNode(ListNode head)
+{
+    ListNode slow = head;
+    ListNode fast = head;
+    while (fast != null && fast.next != null)
+    {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;
+//Example: In 1-> 2-> 3-> 4-> 5->NULL, the middle node is 3.
+}
